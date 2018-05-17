@@ -1,6 +1,5 @@
 <html>
 <head>
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
 <div class = 'pane'>
@@ -21,7 +20,7 @@
 {% endif %}
 {% endwith %}
 
-</div
+</div>
 
 Create New Item
 </a>
@@ -42,7 +41,7 @@ Create New Item
 <a href = '{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = i.id) }}'>Delete</a>
 
 </div>
-
+</div>
 
 
 {% endfor %}
