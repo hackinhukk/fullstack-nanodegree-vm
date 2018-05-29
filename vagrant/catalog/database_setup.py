@@ -32,8 +32,7 @@ class CategoryItem(Base):
     id = Column(Integer, primary_key = True)
     name = Column(String(250), nullable = False)
     description = Column(String(500))
-    # timestamp for ordering by 10 most recent entries
-#    timestamp = Column(timestamp, nullable = False)
+    
     # establishes that Category Items must be a part of items
     category_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
