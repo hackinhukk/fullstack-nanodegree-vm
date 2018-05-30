@@ -24,7 +24,11 @@ session = DBSession()
 
 @app.route('/')
 def mainCatalogMenu():
-    return "main catalog menu function called"
+    session = DBSession()
+    categories = session.query(Category).all()
+    items = session.query(CategoryItem).all()
+    items.sort(key = lambda item: int(item.id))
+    return render_template('mainCatalogMenu.html', recentItems = items[:3])
 
 if __name__ == '__main__':
     app.debug = True
