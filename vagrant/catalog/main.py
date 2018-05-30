@@ -40,6 +40,16 @@ def showCategoryAndItems(categoryname):
     categories = session.query(Category).all()
     return render_template('showCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
 
+@app.route('/catalog/<categoryname>/<item>')
+def showItemDescription(categoryname, item):
+    session = DBSession()
+    selectedCategory = session.query(Category).filter_by(name = categoryname).one()
+    print selectedCategory.id
+    # so it knows which category in case of duplicate titles between categories
+    item1 = session.query(CategoryItem).filter_by(name = item, category_id = selectedCategory.id).one()
+    return render_template('showItemDescription.html', item = item1)
+
+
 
 
 if __name__ == '__main__':
