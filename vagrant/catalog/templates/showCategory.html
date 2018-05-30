@@ -1,4 +1,4 @@
-<h1> {{category.name}} Items </h1>
+<h1> {{category.name}} Items ({{numofitems}} {% if numofitems > 1 %} items) {% else %} item) {% endif %}</h1>
 
 
 {% for item in items %}
