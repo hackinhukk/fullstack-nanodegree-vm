@@ -14,7 +14,7 @@ import requests
 
 app = Flask(__name__)
 
-engine = create_engine('sqlite:///itemcatalog.db')
+engine = create_engine('sqlite:///itemcatalognousers.db')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)

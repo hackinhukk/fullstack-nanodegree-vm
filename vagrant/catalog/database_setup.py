@@ -32,14 +32,14 @@ class CategoryItem(Base):
     id = Column(Integer, primary_key = True)
     name = Column(String(250), nullable = False)
     description = Column(String(500))
-    
+
     # establishes that Category Items must be a part of items
     category_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
 
     # differentiate between users that created items and those that have not.
-    user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship(User)
+#    user_id = Column(Integer, ForeignKey('user.id'))
+#    user = relationship(User)
 
     @property
     def serialize(self):
@@ -51,6 +51,6 @@ class CategoryItem(Base):
             'category': self.category,
         }
 
-engine = create_engine('sqlite:///itemcatalog.db')
+engine = create_engine('sqlite:///itemcatalognousers.db')
 
 Base.metadata.create_all(engine)
