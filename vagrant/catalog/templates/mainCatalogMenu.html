@@ -1,5 +1,14 @@
+<div class = "latest-item-list">
+<h1> Latest Items </h1>
 {% for item in recentItems %}
 <h3>{{item.name}}</h3>
 <h3>{{item.id}}</h3>
 <h3>{{item.category.name}}</h3>
 {% endfor %}
+</div>
+<div class = "category-list">
+<h1> Categories </h1>
+{% for category in categories %}
+<h3>{{category.name}}</h3>
+{% endfor %}
+</div>
