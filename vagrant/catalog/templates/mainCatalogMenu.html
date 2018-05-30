@@ -1,6 +1,7 @@
 <div class = "latest-item-list">
 <h1> Latest Items </h1>
 {% for item in recentItems %}
+<a href = "{{url_for('showItemDescription', item = item.name, categoryname = item.category.name)}}"
 <h3>{{item.name}}</h3>
 <h3>{{item.id}}</h3>
 <h3>{{item.category.name}}</h3>
