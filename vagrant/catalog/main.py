@@ -23,7 +23,7 @@ session = DBSession()
 # Show all Categories and Latest added items
 
 @app.route('/')
-@app.route('/catalog')
+@app.route('/catalogs')
 def mainCatalogMenu():
     session = DBSession()
     categories = session.query(Category).all()
@@ -33,12 +33,10 @@ def mainCatalogMenu():
 
 
 @app.route('/catalog/<categoryname>/Items')
-def showCategoryItems(categoryname):
+def showCategoryAndItems(categoryname):
     session = DBSession()
     selectedCategory = session.query(Category).filter_by(name = categoryname).one()
     items = session.query(CategoryItem).filter_by(category_id = selectedCategory.id).all()
-    print selectedCategory.name
-    print items
     return render_template('showCategory.html', items = items, category = selectedCategory, numofitems = len(items))
 
 
