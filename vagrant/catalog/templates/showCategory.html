@@ -4,3 +4,12 @@
 {% for item in items %}
 <h3> {{item.name}} </h3>
 {% endfor %}
+
+<div class = "category-list">
+<h1> Categories </h1>
+{% for category in categories %}
+<a href = "{{url_for('showCategoryAndItems', categoryname = category.name)}}">
+<h3>{{category.name}}</h3>
+</a>
+{% endfor %}
+</div>
