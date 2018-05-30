@@ -27,8 +27,8 @@ def mainCatalogMenu():
     session = DBSession()
     categories = session.query(Category).all()
     items = session.query(CategoryItem).all()
-    items.sort(key = lambda item: int(item.id))
-    return render_template('mainCatalogMenu.html', recentItems = items[:3])
+    items.sort(key = lambda item: int(item.id), reverse = True)
+    return render_template('mainCatalogMenu.html', recentItems = items[:3], categories = categories)
 
 if __name__ == '__main__':
     app.debug = True
