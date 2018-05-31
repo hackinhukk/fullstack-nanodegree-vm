@@ -1,5 +1,5 @@
 <h1>Edit Item </h1>
-<form action ='#' method = "post">
+<form action ='{{url_for('editCategoryItem', itemname = item.name)}}' method = "post">
   <input type = "text" maxlength = "50" name = "name" placeholder="{{item.name}}">
 
   <textarea maxlength = "500" rows = "6" name = "description" placeholder= "{{item.description}}"></textarea>

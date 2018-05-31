@@ -79,6 +79,18 @@ def editCategoryItem(itemname):
     else:
         return render_template('editCategoryItem.html', item = editedItem)
 
+@app.route('/catalog/<itemname>/delete', methods = ['GET', 'POST'])
+def deleteCategoryItem(itemname):
+    session = DBSession()
+    itemToDelete = session.query(CategoryItem).filter_by(name = itemname).one()
+    if request.method == 'POST':
+        session.delete(itemToDelete)
+        session.commit()
+        return redirect(url_for('mainCatalogMenu'))
+    else:
+        return render_template('deleteCategoryItem.html', item = itemToDelete)
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host = '0.0.0', port = 8000)
