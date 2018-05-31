@@ -44,9 +44,8 @@ def showCategoryAndItems(categoryname):
 def showItemDescription(categoryname, item):
     session = DBSession()
     selectedCategory = session.query(Category).filter_by(name = categoryname).one()
-    print selectedCategory.id
     # so it knows which category in case of duplicate titles between categories
-    item1 = session.query(CategoryItem).filter_by(name = item, category_id = selectedCategory.id).one()
+    item1 = session.query(CategoryItem).filter_by(name = item, category_id = selectedCategory.id).first()
     return render_template('showItemDescription.html', item = item1)
 
 @app.route('/catalog/item/new', methods = ['GET', 'POST'])
@@ -64,7 +63,7 @@ def newCategoryItem():
 @app.route('/catalog/<itemname>/edit', methods = ['GET', 'POST'])
 def editCategoryItem(itemname):
     session = DBSession()
-    editedItem = session.query(CategoryItem).filter_by(name = itemname).one()
+    editedItem = session.query(CategoryItem).filter_by(name = itemname).first()
     if request.method == 'POST':
         category = session.query(Category).filter_by(name = request.form['category']).one()
         if request.form['name']:
@@ -82,7 +81,7 @@ def editCategoryItem(itemname):
 @app.route('/catalog/<itemname>/delete', methods = ['GET', 'POST'])
 def deleteCategoryItem(itemname):
     session = DBSession()
-    itemToDelete = session.query(CategoryItem).filter_by(name = itemname).one()
+    itemToDelete = session.query(CategoryItem).filter_by(name = itemname).first()
     if request.method == 'POST':
         session.delete(itemToDelete)
         session.commit()
