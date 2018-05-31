@@ -1,0 +1,36 @@
+<h1>Edit Item </h1>
+<form action ='#' method = "post">
+  <input type = "text" maxlength = "50" name = "name" placeholder="{{item.name}}">
+
+  <textarea maxlength = "500" rows = "6" name = "description" placeholder= "{{item.description}}"></textarea>
+  <label>
+    <input type = "radio" name ="category" id = "category1" value = "Soccer" {% if item.category.name == "Soccer" %}chcked{% endif %}>Soccer
+  </label>
+  <label>
+    <input type = "radio" name ="category" id = "category2" value = "Basketball" {% if item.category.name == "Basketball" %}chcked{% endif %}>Basketball
+  </label>
+  <label>
+    <input type = "radio" name ="category" id = "category3" value = "Baseball" {% if item.category.name == "Baseball" %}chcked{% endif %}>Baseball
+  </label>
+  <label>
+    <input type = "radio" name ="category" id = "category4" value = "Frisbee" {% if item.category.name == "Frisbee" %}chcked{% endif %}>Frisbee
+  </label>
+  <label>
+    <input type = "radio" name ="category" id = "category5" value = "Snowboarding" {% if item.category.name == "Snowboarding" %}chcked{% endif %}>Snowboarding
+  </label>
+  <label>
+    <input type = "radio" name ="category" id = "category6" value = "RockClimbing" {% if item.category.name == "Rock Climbing" %}chcked{% endif %}>Rock Climbing
+  </label>
+  <label>
+    <input type = "radio" name ="category" id = "category7" value = "Foosball" {% if item.category.name == "Foosball" %}chcked{% endif %}>Foosball
+  </label>
+  <label>
+    <input type = "radio" name ="category" id = "category8" value = "Skating" {% if item.category.name == "Skating" %}chcked{% endif %}>Skating
+  </label>
+  <label>
+    <input type = "radio" name ="category" id = "category9" value = "Hockey" {% if item.category.name == "Hockey" %}chcked{% endif %}>Hockey
+  </label>
+
+  <input type = "submit" id = "submit" value = "Submit">
+
+</form>

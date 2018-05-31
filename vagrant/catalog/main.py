@@ -61,6 +61,23 @@ def newCategoryItem():
     else:
         return render_template('newCategoryItem.html')
 
+@app.route('/catalog/<itemname>/edit', methods = ['GET', 'POST'])
+def editCategoryItem(itemname):
+    session = DBSession()
+    editedItem = session.query(CategoryItem).filter_by(name = itemname).one()
+    if request.method == 'POST':
+        category = session.query(Category).filter_by(name = request.form['category']).one()
+        if request.form['name']:
+            editedItem.name = request.form['name']
+        if request.form['description']:
+            editedItem.description = request.form['description']
+        if request.form['category']:
+            editedItem.category = category
+        session.add(editedItem)
+        session.commit()
+        return redirect(url_for('showCategoryAndItems', categoryname = editedItem.category.name))
+    else:
+        return render_template('editCategoryItem.html', item = editedItem)
 
 if __name__ == '__main__':
     app.debug = True
