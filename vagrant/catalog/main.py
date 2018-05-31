@@ -53,10 +53,11 @@ def showItemDescription(categoryname, item):
 def newCategoryItem():
     session = DBSession()
     if request.method == 'POST':
-        newItem = CategoryItem(name = request.form['name'], description = request.form['description'], category = request.form['category'])
+        chosenCategory = session.query(Category).filter_by(name = request.form["category"]).one()
+        newItem = CategoryItem(name = request.form["name"], description = request.form["description"], category = chosenCategory, category_id = int(chosenCategory.id))
         session.add(newItem)
         session.commit()
-        return redirect(url_for('showCategoryAndItems', categoryname = request.form['category']))
+        return redirect(url_for('showCategoryAndItems', categoryname = newItem.category.name))
     else:
         return render_template('newCategoryItem.html')
 

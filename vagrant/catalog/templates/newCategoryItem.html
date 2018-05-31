@@ -1,33 +1,35 @@
-<form action = '{{url_for('newCategoryItem')}}' method = 'POST'>
-  <input type = "text" maxlength="50" name = "name" placeholder = "Item Name">
+<form action = "{{url_for('newCategoryItem')}}" method = "post">
+  <input type = "text" maxlength="50" name ="name" placeholder = "Item Name">
 
-  <input type = "text" maxLength = "500" name = "description" placeholder = "Item Description">
+  <textarea  maxLength = "500" rows = "6" name ="description" placeholder = "Item Description"></textarea>
   <label>
-    <input type = "radio" name = "category" id = "category1" value = "Soccer">Soccer
+    <input type = "radio" name ="category" id = "category1" value = "Soccer">Soccer
   </label>
   <label>
-    <input type = "radio" name = "category" id = "category2" value = "Basketball">Basketball
+    <input type = "radio" name ="category" id = "category2" value = "Basketball">Basketball
   </label>
   <label>
-    <input type = "radio" name = "category" id = "category3" value = "Baseball">Baseball
+    <input type = "radio" name ="category" id = "category3" value = "Baseball">Baseball
   </label>
   <label>
-    <input type = "radio" name = "category" id = "category4" value = "Frisbee">Frisbee
+    <input type = "radio" name ="category" id = "category4" value = "Frisbee">Frisbee
   </label>
   <label>
-    <input type = "radio" name = "category" id = "category5" value = "Snowboarding">Snowboarding
+    <input type = "radio" name ="category" id = "category5" value = "Snowboarding">Snowboarding
   </label>
   <label>
-    <input type = "radio" name = "category" id = "category6" value = "RockClimbing">Rock Climbing
+    <input type = "radio" name ="category" id = "category6" value = "RockClimbing">Rock Climbing
   </label>
   <label>
-    <input type = "radio" name = "category" id = "category7" value = "Foosball">Foosball
+    <input type = "radio" name ="category" id = "category7" value = "Foosball">Foosball
   </label>
   <label>
-    <input type = "radio" name = "category" id = "category8" value = "Skating">Skating
+    <input type = "radio" name ="category" id = "category8" value = "Skating">Skating
   </label>
   <label>
-    <input type = "radio" name = "category" id = "category9" value = "Hockey">Hockey
+    <input type = "radio" name ="category" id = "category9" value = "Hockey">Hockey
   </label>
 
-  <button type = "submit" id = "submit" type = "submit">Create</button>
+  <input type = "submit" id = "submit" value = "Submit">
+
+</form>
