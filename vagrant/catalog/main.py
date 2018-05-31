@@ -49,7 +49,16 @@ def showItemDescription(categoryname, item):
     item1 = session.query(CategoryItem).filter_by(name = item, category_id = selectedCategory.id).one()
     return render_template('showItemDescription.html', item = item1)
 
-
+@app.route('/catalog/item/new', methods = ['GET', 'POST'])
+def newCategoryItem():
+    session = DBSession()
+    if request.method == 'POST':
+        newItem = CategoryItem(name = request.form['name'], description = request.form['description'], category = request.form['category'])
+        session.add(newItem)
+        session.commit()
+        return redirect(url_for('showCategoryAndItems', categoryname = request.form['category']))
+    else:
+        return render_template('newCategoryItem.html')
 
 
 if __name__ == '__main__':
