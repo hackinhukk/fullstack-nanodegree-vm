@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: "courier new";
+/*  border: 1px solid red; */
 }
 
 body, html {
@@ -24,3 +25,51 @@ h6 {
   font-size: 1vw;
   text-overflow: ellipsis;
 }
+/* Beginning of Header CSS */
+header {
+  display: flex;
+  max-height: 10vh;
+  min-height: 10vh;
+  margin: 0;
+  background-color: grey;
+}
+
+  .left-side-header{
+    margin-left: 10vw;
+    font-size: 5vh;
+  }
+
+  .right-side-header {
+    margin-left: auto;
+    margin-right: 5vw;
+    font-size: 5vh;
+  }
+
+/* Beginning of Main CSS */
+
+main {
+  display: flex;
+  margin-left: 10vw;
+  margin-right: 5vw;
+  margin-top: 5vh;
+  background-color: yellow;
+  border: 1px solid red;
+  min-height: 80vh;
+  max-height: 80vh;
+  min-width:85vw;
+  max-width: 85vw;
+}
+
+  .category-list {
+    margin-top: 1vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
+    .category-list-header {
+      font-size: 8vh;
+      font-weight: bold;
+      color: #808080;
+    }
+    .category-name {
+      font-size: 6vh;
+    }

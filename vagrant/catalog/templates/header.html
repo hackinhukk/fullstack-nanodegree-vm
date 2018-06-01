@@ -1,6 +1,6 @@
-<div class = "header">
+<header>
   <div class = "left-side-header">
-    <a href="{{url_for('mainCatalogMenu')}}">Catalog App</a>
+    <a href="{{url_for('mainCatalogMenu')}}"><label>Catalog App</label></a>
   </div>
   <div class = "right-side-header">
       {% if 'username' not in session %}
@@ -10,4 +10,4 @@
     {% endif %}
   </div>
 
-</div>
+</header>
