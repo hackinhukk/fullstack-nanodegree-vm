@@ -89,7 +89,6 @@ def deleteCategoryItem(itemname):
     else:
         return render_template('deleteCategoryItem.html', item = itemToDelete)
 
-
 if __name__ == '__main__':
     app.debug = True
     app.run(host = '0.0.0', port = 8000)

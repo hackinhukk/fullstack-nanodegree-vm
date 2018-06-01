@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  font-family: "courier new";
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+body {
+/*  background-color: yellow; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: 1vw;
+  text-overflow: ellipsis;
+}
