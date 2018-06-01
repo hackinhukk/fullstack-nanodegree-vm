@@ -12,16 +12,15 @@
   </div>
 
 <div class = "latest-item-list">
-  <a href = "{{url_for('newCategoryItem')}}" method = 'POST'>
-    <button id = "new-category-item">Add Category Item</button>
-  </a>
-  <h1> Latest Items </h1>
+  <a href = "{{url_for('newCategoryItem')}}" method = 'POST'>Add Category</a>
+  <h1 class = "latest-item-list-header"> Latest Items </h1>
 {% for item in recentItems %}
-  <a href = "{{url_for('showItemDescription', item = item.name, categoryname = item.category.name)}}">
-    <h3>{{item.name}}</h3>
-  </a>
-  <h3>{{item.id}}</h3>
-  <h3>{{item.category.name}}</h3>
+  <div class = "latest-item-info">
+    <a href = "{{url_for('showItemDescription', item = item.name, categoryname = item.category.name)}}">
+      <p class = "latest-item-name">{{item.name}}</p>
+    </a>
+    <p class = "latest-item-cagetory"> ({{item.category.name}})</p>
+  </div>
 {% endfor %}
 </div>
 

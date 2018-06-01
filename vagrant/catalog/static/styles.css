@@ -73,3 +73,27 @@ main {
     .category-name {
       font-size: 6vh;
     }
+
+  .latest-item-list {
+    margin-top: 1vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
+
+    .latest-item-info {
+      display: flex;
+    }
+    .latest-item-list-header {
+      font-size: 8vh;
+      font-weight: bold;
+      color: #808080;
+    }
+
+    .latest-item-name {
+      font-size: 6vh;
+    }
+
+    .latest-item-category {
+      color: #808080;
+      font-size: 6vh;
+    }
