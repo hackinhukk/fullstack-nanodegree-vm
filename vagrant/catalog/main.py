@@ -1,17 +1,25 @@
-from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
+from flask import Flask, render_template, request, redirect, jsonify, url_for
 from flask import make_response
-from flask import session as login_session
-# database imports
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+#for anti forgery state token
+from flask import session as login_session
+import random, string
+
+# database imports
+from sqlalchemy import create_engine, asc
+
 from database_setup import Base, User, Category, CategoryItem
 
-import string
 import httplib2
 import json
 import requests
 
+from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
 
+#CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web']['client_id']
+APPLICATION_NAME = "Catalog Application"
+
+# Connect to database
 app = Flask(__name__)
 
 engine = create_engine('sqlite:///itemcatalognousers.db')
@@ -89,6 +97,17 @@ def deleteCategoryItem(itemname):
     else:
         return render_template('deleteCategoryItem.html', item = itemToDelete)
 
+# Create a state token to prevent reuqest
+# Store it in the session for later validation
+@app.route('/login')
+def showLogin():
+    state = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
+    print state
+    login_session['state'] = state
+    return "The current session state is %s" % login_session['state']
+
+
 if __name__ == '__main__':
+    app.secret_key = 'super_secret_key'
     app.debug = True
     app.run(host = '0.0.0', port = 8000)
