@@ -42,7 +42,7 @@ def mainCatalogMenu():
         return render_template('publicMainCatalogMenu.html', recentItems = items [:3], categories = categories)
     else:
         return render_template('mainCatalogMenu.html', recentItems = items[:3], categories = categories)
-# done with this one
+
 
 @app.route('/catalog/<categoryname>/Items')
 def showCategoryAndItems(categoryname):
@@ -54,7 +54,7 @@ def showCategoryAndItems(categoryname):
         return render_template('publicShowCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
     else:
         return render_template('showCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
-# done with this one
+
 
 @app.route('/catalog/<categoryname>/<item>')
 def showItemDescription(categoryname, item):

@@ -11,6 +11,11 @@ body, html {
   min-height: 100vh;
 }
 
+a {
+  text-decoration: none;
+  color: #E43C3C;
+}
+
 body {
 /*  background-color: yellow; */
 }
@@ -35,7 +40,7 @@ header {
   max-height: 10vh;
   min-height: 10vh;
   margin: 0;
-  background-color: grey;
+  background-color: #0469F0;
 }
 
   .left-side-header{
