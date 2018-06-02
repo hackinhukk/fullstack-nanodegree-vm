@@ -60,6 +60,8 @@ def showItemDescription(categoryname, item):
 @app.route('/catalog/item/new', methods = ['GET', 'POST'])
 def newCategoryItem():
     session = DBSession()
+    if 'username' not in login_session:
+        return redirect('/login')
     if request.method == 'POST':
         chosenCategory = session.query(Category).filter_by(name = request.form["category"]).one()
         newItem = CategoryItem(name = request.form["name"], description = request.form["description"], category = chosenCategory, category_id = int(chosenCategory.id))
@@ -72,6 +74,8 @@ def newCategoryItem():
 @app.route('/catalog/<itemname>/edit', methods = ['GET', 'POST'])
 def editCategoryItem(itemname):
     session = DBSession()
+    if 'username' not in login_session:
+        return redirect('/login')
     editedItem = session.query(CategoryItem).filter_by(name = itemname).first()
     if request.method == 'POST':
         category = session.query(Category).filter_by(name = request.form['category']).one()
@@ -90,6 +94,8 @@ def editCategoryItem(itemname):
 @app.route('/catalog/<itemname>/delete', methods = ['GET', 'POST'])
 def deleteCategoryItem(itemname):
     session = DBSession()
+    if 'username' not in login_session:
+        return redirect('/login')
     itemToDelete = session.query(CategoryItem).filter_by(name = itemname).first()
     if request.method == 'POST':
         session.delete(itemToDelete)
