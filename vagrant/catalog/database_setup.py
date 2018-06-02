@@ -38,8 +38,8 @@ class CategoryItem(Base):
     category = relationship(Category)
 
     # differentiate between users that created items and those that have not.
-#    user_id = Column(Integer, ForeignKey('user.id'))
-#    user = relationship(User)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
 
     @property
     def serialize(self):
@@ -49,9 +49,8 @@ class CategoryItem(Base):
             'name': self.name,
             'description': self.description,
             'category': self.category,
-            'category_id': self.category_id,
         }
 
-engine = create_engine('sqlite:///itemcatalognousers.db')
+engine = create_engine('sqlite:///itemcatalog.db')
 
 Base.metadata.create_all(engine)

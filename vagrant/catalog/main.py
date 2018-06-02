@@ -23,7 +23,7 @@ APPLICATION_NAME = "Catalog Application"
 # Connect to database
 app = Flask(__name__)
 
-engine = create_engine('sqlite:///itemcatalognousers.db')
+engine = create_engine('sqlite:///itemcatalog.db')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -64,7 +64,7 @@ def newCategoryItem():
         return redirect('/login')
     if request.method == 'POST':
         chosenCategory = session.query(Category).filter_by(name = request.form["category"]).one()
-        newItem = CategoryItem(name = request.form["name"], description = request.form["description"], category = chosenCategory, category_id = int(chosenCategory.id))
+        newItem = CategoryItem(name = request.form["name"], description = request.form["description"], category = chosenCategory, category_id = int(chosenCategory.id), user_id = login_session['user_id'])
         session.add(newItem)
         session.commit()
         return redirect(url_for('showCategoryAndItems', categoryname = newItem.category.name))
@@ -173,6 +173,12 @@ def gconnect():
     login_session['username'] = data['name']
     login_session['email'] = data['email']
 
+    # see if user exists, if it doesn't make a new one
+    user_id = getUserID(login_session['email'])
+    if not user_id:
+        user_id = createUser(login_session)
+    login_session['user_id'] = user_id
+
 
     output = ''
     output += '<h1> Welcome, '
@@ -209,6 +215,24 @@ def gdisconnect():
         response = make_response(json.dumps('Failed to revoke token for given user.', 400))
         response.headers['Content-Type'] = 'application/json'
         return response
+
+def createUser(login_session):
+    newUser = User(name = login_session['username'], email = login_session['email'])
+    session.add(newUser)
+    session.commit()
+    user = session.query(User).filter_by(email = login_session['email']).one()
+    return user.id
+
+def getUserInfo(user_id):
+    user = session.query(User).filter_by(id = user_id).one()
+    return user
+
+def getUserID(email):
+    try:
+        user = session.query(User).filter_by(email = email).one()
+        return user.id
+    except:
+        return None
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
