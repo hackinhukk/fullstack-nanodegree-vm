@@ -2,11 +2,19 @@
   <div class = "left-side-header">
     <a href="{{url_for('mainCatalogMenu')}}"><label>Catalog App</label></a>
   </div>
-  <div class = "right-side-header">
+
       {% if 'username' not in session %}
-    <a href = "{{url_for('showLogin')}}">Login</a>
+    <div class = "right-side-header">
+    <a href = "{{url_for('showLogin')}}">
+      <img src = 'static/loginButton.svg' alt = "Login">
+    </a>
+    </div>
     {% else %}
-    <a href = "{{url_for('gdisconnect')}}">Disconnect</a>
+    <div class = "right-side-header">
+    <a href = "{{url_for('gdisconnect')}}">
+      <img src = 'static/logoutButton.svg' alt = "Logout">
+    </a>
+    </div>
     {% endif %}
   </div>
 
