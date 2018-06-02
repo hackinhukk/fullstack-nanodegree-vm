@@ -6,13 +6,14 @@
       {% if 'username' not in session %}
     <div class = "right-side-header">
     <a href = "{{url_for('showLogin')}}">
-      <img src = 'static/loginButton.svg' alt = "Login">
+      <!-- url_for is neccessary for image to persist on multiple routes -->
+      <img src = "{{url_for('static', filename='loginButton.svg') }}" alt = "Login" class = "right-side-button">
     </a>
     </div>
     {% else %}
     <div class = "right-side-header">
     <a href = "{{url_for('gdisconnect')}}">
-      <img src = 'static/logoutButton.svg' alt = "Logout">
+      <img src = "{{url_for('static', filename = 'logoutButton.svg') }}" alt = "Logout" class = "right-side-button">
     </a>
     </div>
     {% endif %}

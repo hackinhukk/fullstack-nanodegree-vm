@@ -49,6 +49,12 @@ header {
     font-size: 5vh;
   }
 
+    .right-side-button {
+      max-height: 10vh;
+      min-height: 9vh;
+      min-width: 9vw;
+      max-width: 10vw;
+    }
 
 /* Beginning of Main CSS */
 
