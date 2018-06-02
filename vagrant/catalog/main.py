@@ -54,6 +54,7 @@ def showCategoryAndItems(categoryname):
         return render_template('publicShowCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
     else:
         return render_template('showCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
+# done with this one
 
 @app.route('/catalog/<categoryname>/<item>')
 def showItemDescription(categoryname, item):
@@ -61,7 +62,11 @@ def showItemDescription(categoryname, item):
     selectedCategory = session.query(Category).filter_by(name = categoryname).one()
     # so it knows which category in case of duplicate titles between categories
     item1 = session.query(CategoryItem).filter_by(name = item, category_id = selectedCategory.id).first()
-    return render_template('showItemDescription.html', item = item1)
+    creator = getUserInfo(item1.user_id)
+    if 'username' not in login_session or creator.id != login_session['user_id']:
+        return render_template('publicShowItemDescription.html', item = item1)
+    else:
+        return render_template('showItemDescription.html', item = item1)
 
 @app.route('/catalog/item/new', methods = ['GET', 'POST'])
 def newCategoryItem():

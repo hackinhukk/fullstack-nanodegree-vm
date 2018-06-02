@@ -4,9 +4,8 @@
 <main>
   <h1> {{category.name}} Items ({{numofitems}} {% if numofitems > 1 %} items) {% else %} item) {% endif %}</h1>
 
-
-  {% for item in items %}
   <a href = "{{url_for('newCategoryItem')}}" method = 'POST'>Add Category Item</a>
+  {% for item in items %}
   <a href = "{{url_for('showItemDescription', categoryname = category.name, item = item.name)}}">
   <h3> {{item.name}} </h3>
   </a>
