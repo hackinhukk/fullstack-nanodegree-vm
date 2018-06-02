@@ -38,8 +38,11 @@ def mainCatalogMenu():
     categories = session.query(Category).all()
     items = session.query(CategoryItem).all()
     items.sort(key = lambda item: int(item.id), reverse = True)
-    return render_template('mainCatalogMenu.html', recentItems = items[:3], categories = categories)
-
+    if 'username' not in login_session:
+        return render_template('publicMainCatalogMenu.html', recentItems = items [:3], categories = categories)
+    else:
+        return render_template('mainCatalogMenu.html', recentItems = items[:3], categories = categories)
+# done with this one
 
 @app.route('/catalog/<categoryname>/Items')
 def showCategoryAndItems(categoryname):
@@ -47,7 +50,10 @@ def showCategoryAndItems(categoryname):
     selectedCategory = session.query(Category).filter_by(name = categoryname).one()
     items = session.query(CategoryItem).filter_by(category_id = selectedCategory.id).all()
     categories = session.query(Category).all()
-    return render_template('showCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
+    if 'username' not in login_session:
+        return render_template('publicShowCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
+    else:
+        return render_template('showCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
 
 @app.route('/catalog/<categoryname>/<item>')
 def showItemDescription(categoryname, item):

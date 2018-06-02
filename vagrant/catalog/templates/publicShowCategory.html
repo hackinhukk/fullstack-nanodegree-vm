@@ -6,7 +6,6 @@
 
 
   {% for item in items %}
-  <a href = "{{url_for('newCategoryItem')}}" method = 'POST'>Add Category Item</a>
   <a href = "{{url_for('showItemDescription', categoryname = category.name, item = item.name)}}">
   <h3> {{item.name}} </h3>
   </a>
