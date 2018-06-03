@@ -13,7 +13,6 @@ body, html {
 
 a {
   text-decoration: none;
-  color: #E43C3C;
 }
 
 body {
@@ -43,10 +42,14 @@ header {
   background-color: #0469F0;
 }
 
-  .left-side-header{
+  .left-side-header {
     margin-left: 10vw;
-    font-size: 6vh;
+    font-size: 8vh;
   }
+
+    .left-side-label {
+      color: #fff;
+    }
 
   .right-side-header {
     margin-left: auto;
