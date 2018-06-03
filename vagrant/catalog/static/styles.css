@@ -108,6 +108,7 @@ main {
     margin-left: 1vw;
     margin-right: 1vw;
     min-width: 40vw;
+    font-weight: bold;
   }
 
     .add-category-button {
@@ -155,4 +156,20 @@ main {
 
     .add-item-link {
       color: #77A6F7;
+    }
+/* End of showCategory and publicShowCategory CSS */
+
+/* Beginning of showItemDescription and publicShowItemDescription CSS */
+    .item-name {
+      color: darkblue;
+      font-size: 6vh;
+    }
+
+    .item-description {
+      color: #00887A;
+    }
+
+
+    .item-link {
+      color: red;
     }

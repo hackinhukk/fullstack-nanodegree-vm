@@ -54,7 +54,7 @@ def showCategoryAndItems(categoryname):
         return render_template('publicShowCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
     else:
         return render_template('showCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
-
+# css done for this
 
 @app.route('/catalog/<categoryname>/<item>')
 def showItemDescription(categoryname, item):
@@ -67,6 +67,7 @@ def showItemDescription(categoryname, item):
         return render_template('publicShowItemDescription.html', item = item1)
     else:
         return render_template('showItemDescription.html', item = item1)
+# css in progress for this
 
 @app.route('/catalog/item/new', methods = ['GET', 'POST'])
 def newCategoryItem():
@@ -81,6 +82,7 @@ def newCategoryItem():
         return redirect(url_for('showCategoryAndItems', categoryname = newItem.category.name))
     else:
         return render_template('newCategoryItem.html')
+# css not started for this
 
 @app.route('/catalog/<itemname>/edit', methods = ['GET', 'POST'])
 def editCategoryItem(itemname):
@@ -101,6 +103,7 @@ def editCategoryItem(itemname):
         return redirect(url_for('showCategoryAndItems', categoryname = editedItem.category.name))
     else:
         return render_template('editCategoryItem.html', item = editedItem)
+# css not started for this
 
 @app.route('/catalog/<itemname>/delete', methods = ['GET', 'POST'])
 def deleteCategoryItem(itemname):
@@ -114,6 +117,7 @@ def deleteCategoryItem(itemname):
         return redirect(url_for('mainCatalogMenu'))
     else:
         return render_template('deleteCategoryItem.html', item = itemToDelete)
+# css not started for this
 
 # Create a state token to prevent reuqest forgery
 # Store it in the session for later validation

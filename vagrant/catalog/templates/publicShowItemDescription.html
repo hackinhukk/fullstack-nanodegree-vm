@@ -2,8 +2,10 @@
 {% block content %}
 {% include "header.html" %}
 <main>
-<h1>{{item.name}}</h1>
-<p>Description: {{item.description}}</p>
+<div class = "show-item-description">
+<h1 class = "item-name">{{item.name}}</h1>
+<p class = "item-description">Description: {{item.description}}</p>
+</div>
 </main>
 
 {% endblock %}
