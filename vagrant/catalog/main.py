@@ -42,7 +42,7 @@ def mainCatalogMenu():
         return render_template('publicMainCatalogMenu.html', recentItems = items [:10], categories = categories)
     else:
         return render_template('mainCatalogMenu.html', recentItems = items[:10], categories = categories)
-# css done for this
+# css done for this, vw conversion done
 
 @app.route('/catalog/<categoryname>/Items')
 def showCategoryAndItems(categoryname):
@@ -54,7 +54,7 @@ def showCategoryAndItems(categoryname):
         return render_template('publicShowCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
     else:
         return render_template('showCategory.html', items = items, category = selectedCategory, numofitems = len(items), categories = categories)
-# css done for this
+# css done for this - text vw conversion in progres
 
 @app.route('/catalog/<categoryname>/<item>')
 def showItemDescription(categoryname, item):

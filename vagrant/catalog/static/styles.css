@@ -94,12 +94,12 @@ main {
     min-width: 20vw;
   }
     .category-list-header {
-      font-size: 5vw;
+      font-size: 3vw;
       font-weight: bold;
       color: darkblue;
     }
     .category-name {
-      font-size: 4vw;
+      font-size: 3vw;
       color: #00887A;
     }
 
@@ -140,17 +140,18 @@ main {
 
   .category-item-list{
     margin-top: 1vh;
-    font-size: 4vw;
+    font-size: 3vw;
   }
 
   .category-and-items-header {
-    font-size: 6vw;
+    font-size: 3vw;
     font-weight: bold;
     color: darkblue;
   }
 
     .item-names {
-      font-size: 5vw;
+      /* 2.5 just to be safe for any 50 character names */
+      font-size: 2.5vw;
       color: #00887A;
     }
 
