@@ -1,35 +1,30 @@
-<form action = "{{url_for('newCategoryItem')}}" method = "post">
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<main>
+  <div class = "alter-category-item-full-container">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class = "flash-message-container">
+  <p class = flashes>
+    {% for message in messages %}
+    <p>{{ message }} </p>
+    {% endfor %}
+  </p>
+  </div>
+  {% endif %}
+  {% endwith %}
+<div class = "alter-category-item-container">
+<form class = "alter-category-item-container" action = "{{url_for('newCategoryItem')}}" method = "post">
   <input type = "text" maxlength="50" name ="name" placeholder = "Item Name">
 
   <textarea  maxLength = "500" rows = "6" name ="description" placeholder = "Item Description"></textarea>
-  <label>
-    <input type = "radio" name ="category" id = "category1" value = "Soccer">Soccer
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category2" value = "Basketball">Basketball
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category3" value = "Baseball">Baseball
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category4" value = "Frisbee">Frisbee
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category5" value = "Snowboarding">Snowboarding
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category6" value = "RockClimbing">Rock Climbing
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category7" value = "Foosball">Foosball
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category8" value = "Skating">Skating
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category9" value = "Hockey">Hockey
-  </label>
 
+  <input type = "text" maxlength="50" name = "category" placeholder = "Category Name (capitalization matters)">
   <input type = "submit" id = "submit" value = "Submit">
-
 </form>
+</div>
+<div>
+</main>
+
+{% endblock %}

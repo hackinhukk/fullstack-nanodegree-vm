@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, jsonify, url_for
+from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
 from sqlalchemy.orm import sessionmaker
 #for anti forgery state token
 from flask import session as login_session
@@ -75,11 +75,16 @@ def newCategoryItem():
     if 'username' not in login_session:
         return redirect('/login')
     if request.method == 'POST':
-        chosenCategory = session.query(Category).filter_by(name = request.form["category"]).one()
-        newItem = CategoryItem(name = request.form["name"], description = request.form["description"], category = chosenCategory, category_id = int(chosenCategory.id), user_id = login_session['user_id'])
-        session.add(newItem)
-        session.commit()
-        return redirect(url_for('showCategoryAndItems', categoryname = newItem.category.name))
+        catarr = ['Soccer', 'Basketball', 'Baseball', 'Frisbee', 'Snowboarding', 'Rock Climbing', 'Foosball', 'Skating', 'Hockey']
+        if request.form['category'] in catarr:
+            chosenCategory = session.query(Category).filter_by(name = request.form["category"]).one()
+            newItem = CategoryItem(name = request.form["name"], description = request.form["description"], category = chosenCategory, category_id = int(chosenCategory.id), user_id = login_session['user_id'])
+            session.add(newItem)
+            session.commit()
+            return redirect(url_for('showCategoryAndItems', categoryname = newItem.category.name))
+        else:
+            flash("You need to enter a valid Category")
+            return render_template('newCategoryItem.html')
     else:
         return render_template('newCategoryItem.html')
 # css not started for this
