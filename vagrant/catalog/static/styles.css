@@ -133,4 +133,26 @@ main {
     .latest-item-name {
       color: #00887A;
     }
-/* end of mainCatalogMenu and publicMainCatalogMenu */
+/* end of mainCatalogMenu and publicMainCatalogMenu CSS */
+
+/* Beginning of showCategory and publicShowCategory CSS */
+
+  .category-item-list{
+    margin-top: 1vh;
+    font-size: 4vh;
+  }
+
+  .category-and-items-header {
+    font-size: 6vh;
+    font-weight: bold;
+    color: darkblue;
+  }
+
+    .item-names {
+      font-size: 5vh;
+      color: #00887A;
+    }
+
+    .add-item-link {
+      color: #77A6F7;
+    }

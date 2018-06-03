@@ -42,7 +42,7 @@ def mainCatalogMenu():
         return render_template('publicMainCatalogMenu.html', recentItems = items [:10], categories = categories)
     else:
         return render_template('mainCatalogMenu.html', recentItems = items[:10], categories = categories)
-
+# css done for this
 
 @app.route('/catalog/<categoryname>/Items')
 def showCategoryAndItems(categoryname):
