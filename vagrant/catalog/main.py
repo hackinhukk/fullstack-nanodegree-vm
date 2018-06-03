@@ -39,9 +39,9 @@ def mainCatalogMenu():
     items = session.query(CategoryItem).all()
     items.sort(key = lambda item: int(item.id), reverse = True)
     if 'username' not in login_session:
-        return render_template('publicMainCatalogMenu.html', recentItems = items [:3], categories = categories)
+        return render_template('publicMainCatalogMenu.html', recentItems = items [:10], categories = categories)
     else:
-        return render_template('mainCatalogMenu.html', recentItems = items[:3], categories = categories)
+        return render_template('mainCatalogMenu.html', recentItems = items[:10], categories = categories)
 
 
 @app.route('/catalog/<categoryname>/Items')

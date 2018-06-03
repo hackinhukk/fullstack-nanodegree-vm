@@ -9,7 +9,7 @@ body, html {
   padding: 0;
   min-width: 100vw;
   min-height: 100vh;
-  background-color: lightgrey;
+  background-color: #D3E3FC;
 }
 
 a {
@@ -39,18 +39,22 @@ header {
   display: flex;
   max-height: 10vh;
   min-height: 10vh;
+  min-width: 100vw;
+  max-width: 100vw;
   margin: 0;
-  background-color: #0469F0;
+  background-color: #77A6F7;
+
 }
 
 
   .left-side-header {
     margin-left: 10vw;
     font-size: 8vh;
+    min-width: 10vw;
   }
 
     .left-side-label {
-      color: #fff;
+      color: #FFF;
     }
 
   .right-side-header {
@@ -71,50 +75,62 @@ header {
 main {
   display: flex;
   margin-left: 10vw;
-  margin-right: 5vw;
+  margin-right: 10vw;
   margin-top: 5vh;
-  background-color: white;
-  border: 1px solid red;
+  background-color: #FFF;
+/*  border: 1px solid red; */
   min-height: 80vh;
   max-height: 80vh;
-  min-width:85vw;
-  max-width: 85vw;
-}
+  min-width: 80vw;
+  max-width: 80vw;
+  white-space: nowrap;
 
+}
+/* Beginning of mainCatalogMenu and publicMainCatalogMenu */
   .category-list {
-    margin-top: 1vw;
+    margin-top: 1vh;
     margin-left: 1vw;
     margin-right: 1vw;
+    min-width: 20vw;
   }
     .category-list-header {
       font-size: 8vh;
       font-weight: bold;
-      color: #808080;
+      color: darkblue;
     }
     .category-name {
       font-size: 6vh;
+      color: #00887A;
     }
 
   .latest-item-list {
     margin-top: 1vh;
     margin-left: 1vw;
     margin-right: 1vw;
+    min-width: 40vw;
   }
+
+    .add-category-button {
+      color: #00887A;
+    }
 
     .latest-item-info {
       display: flex;
+      text-align: center;
+      flex-direction: row;
+      min-height: 3vh;
+      max-height: 6vh;
+      font-size: 3vh;
+      color: #77A6F7;
     }
+
     .latest-item-list-header {
       font-size: 8vh;
       font-weight: bold;
-      color: #808080;
+      color: darkblue;
     }
 
     .latest-item-name {
-      font-size: 6vh;
+      color: #00887A;
     }
-
-    .latest-item-category {
-      color: #808080;
-      font-size: 6vh;
-    }
+/* end of mainCatalogMenu and publicMainCatalogMenu */

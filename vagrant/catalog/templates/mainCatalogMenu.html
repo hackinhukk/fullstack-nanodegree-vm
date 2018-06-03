@@ -12,7 +12,7 @@
   </div>
 
 <div class = "latest-item-list">
-  <a href = "{{url_for('newCategoryItem')}}" method = 'POST'>Add Category Item</a>
+  <a class = "add-category-button" href = "{{url_for('newCategoryItem')}}" method = 'POST'>Add Category Item</a>
   <h1 class = "latest-item-list-header"> Latest Items </h1>
 {% for item in recentItems %}
   <div class = "latest-item-info">
