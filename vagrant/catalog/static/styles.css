@@ -167,9 +167,12 @@ main {
 
     .item-description {
       color: #00887A;
+      font-size: 4vh;
+      white-space: normal;
     }
 
 
     .item-link {
       color: red;
+      font-size: 3vh;
     }
