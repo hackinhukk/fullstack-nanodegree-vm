@@ -179,7 +179,7 @@ main {
     }
  /* End of showItemDescription and publicShowItemDescription CSS */
 
- /* Beginning of newCategoryItem CSS */
+ /* Beginning of newCategoryItem and editCategoryItem CSS */
 
  .alter-category-header {
    font-size: 4vw;
@@ -191,4 +191,12 @@ main {
 .alter-category-item-full-container {
   display: flex;
   flex-direction: column;
+}
+
+/* Ending of newCategoryItem and editCategoryItem CSS */
+
+/* Beginning of deleteCategoryItem CSS */
+
+.delete-category-item-container {
+  font-size: 2vw;
 }
