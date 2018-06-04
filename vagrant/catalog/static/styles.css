@@ -16,9 +16,6 @@ a {
   text-decoration: none;
 }
 
-body {
-/*  background-color: yellow; */
-}
 
 img {
   max-width: 100%;
@@ -45,7 +42,6 @@ header {
   background-color: #77A6F7;
 
 }
-
 
   .left-side-header {
     margin-left: 10vw;
@@ -87,6 +83,8 @@ main {
   white-space: nowrap;
 
 }
+/* Ending of Main CSS */
+
 /* Beginning of mainCatalogMenu and publicMainCatalogMenu */
   .category-list {
     margin-top: 1vh;
@@ -135,7 +133,7 @@ main {
     .latest-item-name {
       color: #00887A;
     }
-/* end of mainCatalogMenu and publicMainCatalogMenu CSS */
+/* Ending of mainCatalogMenu and publicMainCatalogMenu CSS */
 
 /* Beginning of showCategory and publicShowCategory CSS */
 
@@ -178,7 +176,7 @@ main {
       color: red;
       font-size: 3vw;
     }
- /* End of showItemDescription and publicShowItemDescription CSS */
+ /* Ending of showItemDescription and publicShowItemDescription CSS */
 
  /* Beginning of newCategoryItem and editCategoryItem CSS */
 
@@ -202,4 +200,4 @@ main {
   font-size: 2vw;
 }
 
-/* End of delete Categoryitem CSS */
+/* Ending of delete Categoryitem CSS */
