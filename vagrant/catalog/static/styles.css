@@ -181,8 +181,8 @@ main {
 
  /* Beginning of newCategoryItem CSS */
 
- .flash-message-container {
-
+ .alter-category-header {
+   font-size: 4vw;
  }
  .alter-category-item-container {
    display: flex;

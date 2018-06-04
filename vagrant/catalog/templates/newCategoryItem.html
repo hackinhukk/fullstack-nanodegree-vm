@@ -14,13 +14,23 @@
   </div>
   {% endif %}
   {% endwith %}
+  <h1 class = "alter-category-header" > Create Item </h1>
+  <br>
 <div class = "alter-category-item-container">
 <form class = "alter-category-item-container" action = "{{url_for('newCategoryItem')}}" method = "post">
+  <label> Item Name </label>
   <input type = "text" maxlength="50" name ="name" placeholder = "Item Name">
-
+  <br>
+  <label> Item Description </label>
   <textarea  maxLength = "500" rows = "6" name ="description" placeholder = "Item Description"></textarea>
-
+  <br>
+  <label> Category Name</label>
+  <p> Name must be spelled exactly as presented below :</p>
+  <p> Soccer, Basketball, Baseball, Frisbee, Snowboarding, </p>
+  <p> Rock Climbing, Foosball, Skating, Hockey </p>
+  <br>
   <input type = "text" maxlength="50" name = "category" placeholder = "Category Name (capitalization matters)">
+  <br>
   <input type = "submit" id = "submit" value = "Submit">
 </form>
 </div>
