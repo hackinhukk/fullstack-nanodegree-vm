@@ -53,10 +53,10 @@ def mainCatalogMenu():
 @app.route('/catalog/<categoryname>/Items')
 def showCategoryAndItems(categoryname):
     session = DBSession()
-    selectedCategory = session.query(Category)
-    .filter_by(name=categoryname).one()
-    items = session.query(CategoryItem)
-    .filter_by(category_id=selectedCategory.id).all()
+    selectedCategory = session.query(Category).filter_by(
+                       name=categoryname).one()
+    items = session.query(CategoryItem).filter_by(
+            category_id=selectedCategory.id).all()
     categories = session.query(Category).all()
     if 'username' not in login_session:
         return render_template('publicShowCategory.html',
@@ -71,14 +71,14 @@ def showCategoryAndItems(categoryname):
 @app.route('/catalog/<categoryname>/<item>')
 def showItemDescription(categoryname, item):
     session = DBSession()
-    selectedCategory = session.query(Category)
-    .filter_by(name=categoryname).one()
+    selectedCategory = session.query(Category).filter_by(
+                       name=categoryname).one()
     # so it knows which category in case of duplicate titles between categories
-    item1 = session.query(CategoryItem)
-    .filter_by(name=item, category_id=selectedCategory.id).first()
+    item1 = session.query(CategoryItem).filter_by(
+            name=item, category_id=selectedCategory.id).first()
     creator = getUserInfo(item1.user_id)
-    if 'username' not in login_session or
-    creator.id! = login_session['user_id']:
+    if ('username' not in login_session
+            or creator.id != login_session['user_id']):
         return render_template('publicShowItemDescription.html', item=item1)
     else:
         return render_template('showItemDescription.html', item=item1)
@@ -94,8 +94,8 @@ def newCategoryItem():
                   'Snowboarding', 'Rock Climbing', 'Foosball',
                   'Skating', 'Hockey']
         if request.form['category'] in catarr:
-            chosenCategory = session.query(Category)
-            .filter_by(name=request.form["category"]).one()
+            chosenCategory = session.query(Category).filter_by(
+                             name=request.form["category"]).one()
             newItem = CategoryItem(name=request.form["name"],
                                    description=request.form["description"],
                                    category=chosenCategory,
@@ -118,8 +118,8 @@ def editCategoryItem(itemname):
         return redirect('/login')
     editedItem = session.query(CategoryItem).filter_by(name=itemname).first()
     if request.method == 'POST':
-        category = session.query(Category)
-        .filter_by(name=request.form['category']).one()
+        category = session.query(Category).filter_by(
+                   name=request.form['category']).one()
         if request.form['name']:
             editedItem.name = request.form['name']
         if request.form['description']:
