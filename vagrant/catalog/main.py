@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
+from flask import Flask, render_template, request, redirect, jsonify, url_for
 from sqlalchemy.orm import sessionmaker
 #for anti forgery state token
 from flask import session as login_session
@@ -83,7 +83,6 @@ def newCategoryItem():
             session.commit()
             return redirect(url_for('showCategoryAndItems', categoryname = newItem.category.name))
         else:
-            flash("You need to enter a valid Category")
             return render_template('newCategoryItem.html')
     else:
         return render_template('newCategoryItem.html')
@@ -253,6 +252,23 @@ def getUserID(email):
         return user.id
     except:
         return None
+
+# JSON Endpoint functions
+
+@app.route('/catalogs/JSON')
+def catalogsJSON():
+    session = DBSession()
+    catalogs = session.query(Category).all()
+    return jsonify(categories = [c.serialize for c in catalogs])
+
+@app.route('/catalog/<itemname>/JSON')
+def categoryItemJSON(itemname):
+    session = DBSession()
+    # in case of same named item, will show up the multi names
+    item = session.query(CategoryItem).filter_by(name = itemname).all()
+    return jsonify(item = [i.serialize for i in item])
+
+
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
