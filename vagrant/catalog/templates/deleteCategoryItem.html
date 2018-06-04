@@ -2,12 +2,12 @@
 {% block content %}
 {% include "header.html" %}
 <main>
-<div class = "delete-category-item-container">
-<h1 class = "alter-category-header">Delete Item</h1>
-<p>Are you sure you want to delete {{item.name}}?</p>
-<form action = '#' method = 'post'>
-  <button type = "submit" id = "submit">Delete</button>
-</form>
-</div>
+  <div class = "delete-category-item-container">
+    <h1 class = "alter-category-header">Delete Item</h1>
+    <p>Are you sure you want to delete {{item.name}}?</p>
+    <form action = '#' method = 'post'>
+      <button type = "submit" id = "submit">Delete</button>
+<   /form>
+  </div>
 </main>
 {% endblock %}

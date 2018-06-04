@@ -3,26 +3,24 @@
 {% include "header.html" %}
 <main>
   <div class = "category-list">
-  <h1 class = "category-list-header"> Categories </h1>
-  {% for category in categories %}
-  <a href = "{{url_for('showCategoryAndItems', categoryname = category.name)}}">
-  <h3 class = "category-name">{{category.name}}</h3>
-  </a>
+    <h1 class = "category-list-header"> Categories </h1>
+    {% for category in categories %}
+    <a href = "{{url_for('showCategoryAndItems', categoryname = category.name)}}">
+      <h3 class = "category-name">{{category.name}}</h3>
+    </a>
+    {% endfor %}
+  </div>
+  <div class = "latest-item-list">
+    <a class = "add-category-button" href = "{{url_for('newCategoryItem')}}" method = 'POST'>Add Category Item</a>
+    <h1 class = "latest-item-list-header"> Latest Items </h1>
+  {% for item in recentItems %}
+    <div class = "latest-item-info">
+      <a href = "{{url_for('showItemDescription', item = item.name, categoryname = item.category.name)}}">
+        <p class = "latest-item-name">{{item.name}}</p>
+      </a>
+      <p class = "latest-item-cagetory"> ({{item.category.name}})</p>
+    </div>
   {% endfor %}
   </div>
-
-<div class = "latest-item-list">
-  <a class = "add-category-button" href = "{{url_for('newCategoryItem')}}" method = 'POST'>Add Category Item</a>
-  <h1 class = "latest-item-list-header"> Latest Items </h1>
-{% for item in recentItems %}
-  <div class = "latest-item-info">
-    <a href = "{{url_for('showItemDescription', item = item.name, categoryname = item.category.name)}}">
-      <p class = "latest-item-name">{{item.name}}</p>
-    </a>
-    <p class = "latest-item-cagetory"> ({{item.category.name}})</p>
-  </div>
-{% endfor %}
-</div>
-
 </main>
 {% endblock %}

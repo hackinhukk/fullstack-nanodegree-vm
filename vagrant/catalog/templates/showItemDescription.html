@@ -2,13 +2,13 @@
 {% block content %}
 {% include "header.html" %}
 <main>
-<div class = "show-item-description">
-<h1 class = "item-name">{{item.name}}</h1>
-<p class = "item-description">Description: {{item.description}}</p>
-<a class = "item-link" href='{{url_for('editCategoryItem', itemname = item.name)}}'>Edit</a>
-<span class = "item-span">|</span>
-<a class = "item-link" href='{{url_for('deleteCategoryItem', itemname = item.name)}}'>Delete</a>
-</div>
+  <div class = "show-item-description">
+    <h1 class = "item-name">{{item.name}}</h1>
+    <p class = "item-description">Description: {{item.description}}</p>
+    <a class = "item-link" href='{{url_for('editCategoryItem', itemname = item.name)}}'>Edit</a>
+    <span class = "item-span">|</span>
+    <a class = "item-link" href='{{url_for('deleteCategoryItem', itemname = item.name)}}'>Delete</a>
+  </div>
 </main>
 
 {% endblock %}

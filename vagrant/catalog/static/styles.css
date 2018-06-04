@@ -49,12 +49,13 @@ header {
 
   .left-side-header {
     margin-left: 10vw;
-    font-size: 8vh;
+    font-size: 7vw;
     min-width: 10vw;
   }
 
     .left-side-label {
       color: #FFF;
+      font-size: 7vw;
     }
 
   .right-side-header {
@@ -200,3 +201,5 @@ main {
 .delete-category-item-container {
   font-size: 2vw;
 }
+
+/* End of delete Categoryitem CSS */

@@ -1,48 +1,48 @@
 {% extends "main.html" %}
 {% block content %}
 {% include "header.html" %}
+
 <main>
   <div class = "alter-category-item-full-container">
-<h1 class = "alter-category-header">Edit Item </h1>
-<br>
-<form class = "alter-category-item-container" action ='{{url_for('editCategoryItem', itemname = item.name)}}' method = "post">
-  <label> Item Name </label>
-  <input type = "text" maxlength = "50" name = "name" value="{{item.name}}">
-  <br>
-  <label> Item Description </label>
-  <textarea maxlength = "500" rows = "6" name = "description">{{item.description}}</textarea>
-  <label>Category:</label>
-  <label>
-    <input type = "radio" name ="category" id = "category1" value = "Soccer" {% if item.category.name == "Soccer" %}checked{% endif %}>Soccer
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category2" value = "Basketball" {% if item.category.name == "Basketball" %}checked{% endif %}>Basketball
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category3" value = "Baseball" {% if item.category.name == "Baseball" %}checked{% endif %}>Baseball
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category4" value = "Frisbee" {% if item.category.name == "Frisbee" %}checked{% endif %}>Frisbee
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category5" value = "Snowboarding" {% if item.category.name == "Snowboarding" %}checked{% endif %}>Snowboarding
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category6" value = "RockClimbing" {% if item.category.name == "Rock Climbing" %}checked{% endif %}>Rock Climbing
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category7" value = "Foosball" {% if item.category.name == "Foosball" %}checked{% endif %}>Foosball
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category8" value = "Skating" {% if item.category.name == "Skating" %}checked{% endif %}>Skating
-  </label>
-  <label>
-    <input type = "radio" name ="category" id = "category9" value = "Hockey" {% if item.category.name == "Hockey" %}checked{% endif %}>Hockey
-  </label>
-
-  <input type = "submit" id = "submit" value = "Submit">
-
-</form>
+    <h1 class = "alter-category-header">Edit Item </h1>
+    <br>
+    <form class = "alter-category-item-container" action ='{{url_for('editCategoryItem', itemname = item.name)}}' method = "post">
+      <label> Item Name </label>
+      <input type = "text" maxlength = "50" name = "name" value="{{item.name}}">
+      <br>
+      <label> Item Description </label>
+      <textarea maxlength = "500" rows = "6" name = "description">{{item.description}}</textarea>
+      <label>Category:</label>
+      <label>
+        <input type = "radio" name ="category" id = "category1" value = "Soccer" {% if item.category.name == "Soccer" %}checked{% endif %}>Soccer
+      </label>
+      <label>
+        <input type = "radio" name ="category" id = "category2" value = "Basketball" {% if item.category.name == "Basketball" %}checked{% endif %}>Basketball
+      </label>
+      <label>
+        <input type = "radio" name ="category" id = "category3" value = "Baseball" {% if item.category.name == "Baseball" %}checked{% endif %}>Baseball
+      </label>
+      <label>
+        <input type = "radio" name ="category" id = "category4" value = "Frisbee" {% if item.category.name == "Frisbee" %}checked{% endif %}>Frisbee
+      </label>
+      <label>
+        <input type = "radio" name ="category" id = "category5" value = "Snowboarding" {% if item.category.name == "Snowboarding" %}checked{% endif %}>Snowboarding
+      </label>
+      <label>
+        <input type = "radio" name ="category" id = "category6" value = "RockClimbing" {% if item.category.name == "Rock Climbing" %}checked{% endif %}>Rock Climbing
+      </label>
+      <label>
+        <input type = "radio" name ="category" id = "category7" value = "Foosball" {% if item.category.name == "Foosball" %}checked{% endif %}>Foosball
+      </label>
+      <label>
+        <input type = "radio" name ="category" id = "category8" value = "Skating" {% if item.category.name == "Skating" %}checked{% endif %}>Skating
+      </label>
+      <label>
+        <input type = "radio" name ="category" id = "category9" value = "Hockey" {% if item.category.name == "Hockey" %}checked{% endif %}>Hockey
+      </label>
+      <input type = "submit" id = "submit" value = "Submit">
+    </form>
+  </div>
 </main>
 
 {% endblock %}

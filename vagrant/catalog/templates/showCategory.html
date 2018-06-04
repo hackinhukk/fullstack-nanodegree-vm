@@ -3,24 +3,21 @@
 {% include "header.html" %}
 <main>
   <div class = "category-list">
-  <h1 class = "category-list-header"> Categories </h1>
-  {% for category in categories %}
-  <a href = "{{url_for('showCategoryAndItems', categoryname = category.name)}}">
-  <h3 class = "category-name">{{category.name}}</h3>
-  </a>
-  {% endfor %}
-</div>
+    <h1 class = "category-list-header"> Categories </h1>
+    {% for category in categories %}
+    <a href = "{{url_for('showCategoryAndItems', categoryname = category.name)}}">
+      <h3 class = "category-name">{{category.name}}</h3>
+    </a>
+    {% endfor %}
+  </div>
   <div class = "category-item-list">
     <h1 class = "category-and-items-header"> {{category.name}} Items ({{numofitems}} {% if numofitems > 1 %} items) {% else %} item) {% endif %}</h1>
-  <a class = 'add-item-link' href = "{{url_for('newCategoryItem')}}" method = 'POST'>Add Category Item</a>
-  {% for item in items %}
-  <a href = "{{url_for('showItemDescription', categoryname = category.name, item = item.name)}}">
-  <h3 class = 'item-names'> {{item.name}} </h3>
-  </a>
-
-  {% endfor %}
-
-
+    <a class = 'add-item-link' href = "{{url_for('newCategoryItem')}}" method = 'POST'>Add Category Item</a>
+    {% for item in items %}
+    <a href = "{{url_for('showItemDescription', categoryname = category.name, item = item.name)}}">
+    <h3 class = 'item-names'> {{item.name}} </h3>
+    </a>
+    {% endfor %}
   </div>
 </main>
 {% endblock %}
