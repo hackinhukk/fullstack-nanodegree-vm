@@ -27,17 +27,23 @@ You will also need to make sure you are running these setup commands and the pyt
 
 ### Installing
 
-You should open up the downloaded UDCCatalogProject directory, and make sure there is a Vagrantfile within the directory, as well as the other corresponding project files.
+You should first navigate to the catalog directory.  You can do this by entering the fullstack-nanodegree-vm directory you downloaded, by typing in  
+```
+cd fullstack-nanodegree-vm
+```
+and pressing enter.  Then you should navigate to the catalog directory by typing in
+```
+cd catalog
+```
 
-
-While you are still in this directory, you should type in the terminal
+When you are in this directory, you should type in the terminal
 ```
 vagrant up
 ```
 
 
 
-After your Vagrant machine finishes the download that started from calling Vagrant up in the UDCCatalogProject directory you installed,
+After your Vagrant machine finishes the download that started from calling Vagrant up in the catalog directory you installed,
 you should type
 
 
@@ -56,7 +62,7 @@ cd /vagrant
 
 and enter.  Then type
 ```
-cd UDCCatalogProject
+cd catalog
 ```
 
 
