@@ -70,9 +70,9 @@ and press enter. Before setting up the database, there are three directories tha
 
 
 ```
-pip install werkzeug == 0.8.3 --user
-pip install flask == 0.9 --user
-pip install Flask-Login == 0.1.3 --user
+pip install werkzeug==0.8.3 --user
+pip install flask==0.9 --user
+pip install Flask-Login==0.1.3 --user
 ```
 
 
