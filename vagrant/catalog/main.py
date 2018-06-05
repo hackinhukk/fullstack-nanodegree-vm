@@ -117,6 +117,9 @@ def editCategoryItem(itemname):
     if 'username' not in login_session:
         return redirect('/login')
     editedItem = session.query(CategoryItem).filter_by(name=itemname).first()
+    creator = getUserInfo(editedItem.user_id)
+    if creator.id != login_session['user_id']:
+        return "<script type = 'text/javascript'>function myFunction() {alert('You are not authorized to edit this CategoryItem.  Please create your own CategoryItem in order to edit it.');}</script><body onload='myFunction();'>"
     if request.method == 'POST':
         category = session.query(Category).filter_by(
                    name=request.form['category']).one()
@@ -140,6 +143,8 @@ def deleteCategoryItem(itemname):
     if 'username' not in login_session:
         return redirect('/login')
     itemToDelete = session.query(CategoryItem).filter_by(name=itemname).first()
+    if itemToDelete.user_id != login_session['user_id']:
+        return "<script type = 'text/javascript'>function myFunction() {alert('You are not authorized to delete this CategoryItem.  Please create your own CategoryItem in order to delete it.');}</script><body onload='myFunction();'>"
     if request.method == 'POST':
         session.delete(itemToDelete)
         session.commit()
