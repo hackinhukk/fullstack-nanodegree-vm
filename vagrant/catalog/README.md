@@ -107,6 +107,21 @@ and click around.  Note that you can only add, edit, and delete items that you a
 You must be logged into a google account in order to accomplish any other interact with the category items besides reading them.
 
 
+## JSON API Endpoints
+
+If you type in
+```
+http://localhost:8000/catalogs/JSON
+
+```
+to your web browser, you will get a list of JSON objects, representing all the data in the Category table.
+
+If you type in
+```
+http://localhost:8000/catalog/itemname/JSON
+```
+into your web browser, and replace itemname with the name of a Category item, it will return a JSON object with the serializable parts of the CategoryItem database.
+
 ### And coding style tests
 
 The python code follows PEP8 Standards.
